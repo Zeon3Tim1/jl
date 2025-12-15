@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新闻中心 - 城市技能培训中心</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1d4ed8',   /* 务实蓝 */
+                        secondary: '#f97316', /* 活力橙 */
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        html { scroll-behavior: smooth; }
+        /* 侧边栏选中态样式 */
+        .news-tab.active {
+            background-color: #eff6ff; /* blue-50 */
+            color: #1d4ed8; /* primary */
+            border-left: 4px solid #1d4ed8;
+        }
+        .blog-tab.active {
+            background-color: #eff6ff; /* blue-50 */
+            color: #1d4ed8; /* primary */
+            border-left: 4px solid #1d4ed8;
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-700 bg-gray-50 flex flex-col min-h-screen">
+
+    <nav class="bg-white shadow-md fixed w-full z-50 top-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-primary">
+                        <i class="fa-solid fa-hammer mr-2"></i>接龙职校
+                    </a>
+                </div>
+                
+    <div class="hidden md:flex items-center space-x-8">
+                    <a href="jielong1.html" class="nav-link text-gray-900 hover:text-primary font-medium" data-page="home">首页</a>
+                    <a href="news.html" class="nav-link text-gray-500 hover:text-primary font-medium" data-page="news">新闻动态</a>
+                    <a href="blog.html" class="nav-link text-gray-500 hover:text-primary font-medium" data-page="blog">博客文章</a>
+                    <a href="jielong1.html#contact" class="nav-link bg-primary text-white px-4 py-2 rounded-md font-medium hover:bg-blue-800 transition" data-page="contact">
+                        联系方式
+                    </a>
+                </div>
+
+                <div class="flex items-center md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-500 hover:text-gray-900 focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="jielong1.html" class="block px-3 py-2 text-base font-medium text-gray-900 bg-gray-50 rounded">首页</a>
+                <a href="news.html" class="block px-3 py-2 text-base font-medium text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded">新闻动态</a>
+                <a href="blog.html" class="block px-3 py-2 text-base font-medium text-gray-500 hover:text-gray-900 hover:bg-gray-50 rounded">博客文章</a>
+                <a href="#contact" class="block px-3 py-2 text-base font-bold text-primary">联系方式</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="bg-gray-900 text-white pt-24 pb-12 mt-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="text-3xl font-bold mb-2">新闻中心</h1>
+            <p class="text-gray-400 text-sm">关注学校动态，见证学员成长</p>
+        </div>
+    </header>
+
+    <div class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            
+            <aside class="md:col-span-1">
+                <div class="bg-white rounded-lg shadow-sm border border-gray-100 sticky top-24 overflow-hidden">
+<button onclick="toggleNewsList()" id="news-toggle-btn" class="p-4 bg-gray-50 border-b border-gray-100 font-bold text-gray-800 w-full flex justify-between items-center">
+    <span><i class="fa-solid fa-list-ul mr-2 text-primary"></i>近期新闻</span>
+    <i id="toggle-icon" class="fa-solid fa-angle-up"></i>
+</button>
+<div class="flex flex-col" id="news-sidebar" style="display: block; max-height: 300px; overflow-y:auto;">
+                        <!-- 动态生成的新闻列表将插入这里 -->
+                    </div>
+                </div>
+            </aside>
+
+<main class="md:col-span-3">
+                <div class="bg-white rounded-lg shadow-sm border border-gray-100 p-8 min-h-[500px]">
+                    <!-- 动态生成的新闻内容将插入这里 -->
+                    <div id="news-content-container"></div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <footer id="contact" class="bg-gray-800 text-white mt-auto">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+                <h4 class="text-xl font-bold text-white mb-4">接龙职校</h4>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    致力于为城市建设者提供最专业的职业技能培训。让每一个人都能凭手艺赢得尊重，获得高薪。
+                </p>
+            </div>
+            <div>
+                <h4 class="text-xl font-bold text-white mb-4">联系我们</h4>
+                <ul class="space-y-3 text-gray-400 text-sm">
+                    <li class="flex items-center">
+                        <i class="fa-solid fa-location-dot mr-3 w-4"></i>
+                        <span>地址：XX市XX区科技大道88号实训基地</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fa-solid fa-phone mr-3 w-4"></i>
+                        <span>电话：400-123-4567 (24小时热线)</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fa-brands fa-weixin mr-3 w-4"></i>
+                        <span>微信：pengcheng_edu</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="flex flex-col justify-center">
+                <p class="text-sm text-gray-400 mb-4">想要了解课程学费和开班时间？</p>
+                <button class="bg-secondary text-white font-bold py-3 px-4 rounded w-full hover:bg-orange-600 transition">
+                    <i class="fa-regular fa-comment-dots mr-2"></i>立即在线咨询
+                </button>
+            </div>
+        </div>
+        <div class="border-t border-gray-700 bg-gray-900">
+            <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-sm text-gray-500">
+                    &copy; 2023 接龙职业技能培训有限公司 版权所有
+                </p>
+                <p class="text-sm text-gray-500 mt-2 md:mt-0">
+                    <a href="#" class="hover:text-white">隐私政策</a> | 
+                    <a href="#" class="hover:text-white">用户协议</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+<script>
+    // 1. 移动端菜单控制 (与主页一致)
+    const btn = document.getElementById('mobile-menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    btn.addEventListener('click', () => {
+        menu.classList.toggle('hidden');
+    });
+
+    // 2. 新闻切换逻辑 (CSS Display 切换)
+    function switchNews(newsId) {
+        // 1. 隐藏所有内容
+        document.querySelectorAll('.news-content').forEach(el => {
+            el.classList.add('hidden');
+        });
+        
+        // 2. 移除所有 Tab 的激活状态
+        document.querySelectorAll('.news-tab').forEach(el => {
+            el.classList.remove('active');
+        });
+
+        // 3. 显示指定内容
+        const content = document.getElementById(newsId);
+        if(content) content.classList.remove('hidden');
+
+        // 4. 激活指定 Tab
+        const tab = document.getElementById('tab-' + newsId);
+        if(tab) tab.classList.add('active');
+
+        // 移动端体验优化：切换后滚动到内容顶部（可选）
+        if(window.innerWidth < 768) {
+            content.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
+
+    // 3. 页面加载时处理 URL 参数 (例如：news.html?id=news-2)
+    function handleUrlParameters() {
+        try {
+            const urlParams = new URLSearchParams(window.location.search);
+            const newsId = urlParams.get('id');
+            if (newsId && document.getElementById(newsId)) {
+                switchNews(newsId);
+            }
+        } catch (error) {
+            console.error('Error handling URL parameters:', error);
+        }
+    }
+    
+    // 确保DOM加载完成后处理URL参数
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', handleUrlParameters);
+    } else {
+        // DOM已经加载完成
+        handleUrlParameters();
+    }
+
+// 4. 展开/收起新闻列表
+    function toggleNewsList() {
+        const sidebar = document.getElementById('news-sidebar');
+        const icon = document.getElementById('toggle-icon');
+
+        if (sidebar.style.display === 'none') {
+            sidebar.style.display = 'block';
+            icon.className = 'fa-solid fa-angle-up';
+        } else {
+            sidebar.style.display = 'none';
+            icon.className = 'fa-solid fa-angle-down';
+        }
+    }
+    
+    // 5. 博客文章切换逻辑 (CSS Display 切换)
+    function switchBlog(blogId) {
+        // 1. 隐藏所有内容
+        document.querySelectorAll('.blog-content').forEach(el => {
+            el.classList.add('hidden');
+        });
+        
+        // 2. 移除所有 Tab 的激活状态
+        document.querySelectorAll('.blog-tab').forEach(el => {
+            el.classList.remove('active');
+        });
+
+        // 3. 显示指定内容
+        const content = document.getElementById(blogId);
+        if(content) content.classList.remove('hidden');
+
+        // 4. 激活指定 Tab
+        const tab = document.getElementById('tab-' + blogId);
+        if(tab) tab.classList.add('active');
+
+        // 移动端体验优化：切换后滚动到内容顶部（可选）
+        if(window.innerWidth < 768) {
+            content.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
+    
+    // 6. 展开/收起博客文章列表
+    function toggleBlogList() {
+        const sidebar = document.getElementById('blog-sidebar');
+        const icon = document.getElementById('blog-toggle-icon');
+
+        if (sidebar.style.display === 'none') {
+            sidebar.style.display = 'block';
+            icon.className = 'fa-solid fa-angle-up';
+        } else {
+            sidebar.style.display = 'none';
+            icon.className = 'fa-solid fa-angle-down';
+        }
+    }
+    
+    // --- 7. 导航栏高亮功能 ---
+    // 获取当前页面的标识
+    function getCurrentPage() {
+        const path = window.location.pathname;
+        const filename = path.split('/').pop();
+        
+        if (filename === '' || filename === 'jielong1.html' || filename === 'index.html') {
+            return 'home';
+        } else if (filename === 'news.html') {
+            return 'news';
+        } else if (filename === 'blog.html') {
+            return 'blog';
+        }
+        return 'home'; // 默认返回首页
+    }
+    
+    // 设置导航栏高亮
+    function setActiveNav() {
+        const currentPage = getCurrentPage();
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        navLinks.forEach(link => {
+            const page = link.getAttribute('data-page');
+            if (page === currentPage) {
+                // 移除其他链接的hover效果
+                link.classList.remove('hover:text-primary');
+                // 为当前页面链接添加高亮效果
+                if (page !== 'contact') {
+                    link.classList.add('text-primary', 'font-bold');
+                }
+            } else {
+                // 为非当前页面链接添加灰色效果
+                if (page !== 'contact') {
+                    link.classList.remove('text-gray-900');
+                    link.classList.add('text-gray-500');
+                }
+            }
+        });
+    }
+    
+// 页面加载完成后设置导航栏高亮
+    document.addEventListener('DOMContentLoaded', function() {
+        setActiveNav();
+        // 加载新闻数据
+        loadNewsData();
+    });
+    
+    // 从localStorage加载新闻数据并生成页面内容
+    function loadNewsData() {
+        // 从localStorage获取新闻数据
+        let newsArticles = JSON.parse(localStorage.getItem('newsArticles') || '[]');
+        
+        // 如果没有数据，初始化一些默认数据
+        if (newsArticles.length === 0) {
+            newsArticles = [
+                {
+                    id: 'news-1',
+                    title: '喜报！我校学员斩获市级电工技能大赛金奖',
+                    category: '技能竞赛',
+                    date: '2025-10-22',
+                    author: '教务处',
+                    image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+                    content: '<p>在刚刚结束的第十五届职业技能大赛中，我校电工班学员凭借扎实的实操功底，从500名选手中脱颖而出，一举夺得金奖。这是我校连续第三年在此项赛事中获得殊荣。</p><p>本次大赛由市人力资源和社会保障局主办，旨在弘扬工匠精神，选拔高技能人才。比赛内容涵盖了电路设计、故障排查、PLC编程等多个高难度环节。</p><p>获奖学员王强在接受采访时表示："感谢学校提供的实训设备和老师们的悉心指导，每天在实训室的反复练习，让我在赛场上能够从容应对各种突发状况。"</p><p class="font-bold text-gray-800 mt-4">学校决定对获奖学员及指导教师团队通报表扬，并奖励现金 5000 元。</p>'
+                },
+                {
+                    id: 'news-2',
+                    title: '接轨大厂！千万级新能源汽修实训中心落成',
+                    category: '学校建设',
+                    date: '2025-09-15',
+                    author: '校办',
+                    image: 'https://images.unsplash.com/photo-1487887235947-a955ef187fcc?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+                    content: '<p>为了让学员掌握最新技术，学校斥资引进特斯拉、比亚迪全套检修设备，实训环境1:1还原4S店。新的实训中心占地2000平米，配备了最新的电池包检测系统和电机维修平台。</p><p>随着新能源汽车市场的爆发式增长，掌握高压电控维修技术的人才供不应求。我校此次升级实训设施，正是为了填补这一市场空缺。</p>'
+                },
+                {
+                    id: 'news-3',
+                    title: '秋季大型双选会：300家企业入校抢人',
+                    category: '就业喜报',
+                    date: '2025-09-08',
+                    author: '就业处',
+                    image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+                    content: '<p>本次招聘会涵盖汽修、电工、电商三大板块，现场签订就业意向书达1200份，平均起薪同比上涨15%。</p><p>众多知名企业如上汽大众、京东物流、国家电网外包公司等均派代表来到现场。企业普遍反映，我校毕业生动手能力强，上手快，无需二次培训即可上岗。</p>'
+                },
+                {
+                    id: 'news-4',
+                    title: '"迎新杯"篮球赛决赛：汽修班逆风翻盘',
+                    category: '校园生活',
+                    date: '2025-10-01',
+                    author: '学生处',
+                    image: 'https://images.unsplash.com/photo-1546519638-68e109498ffc?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+                    content: '<p>热血青春，激情碰撞！在昨日的决赛中，汽修二班在落后10分的情况下，凭着顽强的意志，在最后2分钟完成惊天逆转，最终以78:76战胜了电工一班。</p><p>这场比赛展现了我们职校学子不仅技能过硬，在体育竞技场上同样拥有不服输的精神。</p>'
+                },
+                {
+                    id: 'news-5',
+                    title: '我校与华为达成战略合作协议',
+                    category: '校企合作',
+                    date: '2025-08-20',
+                    author: '校办',
+                    image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+                    content: '<p>今日上午，我校与华为技术有限公司在华为深圳总部举行战略合作签约仪式。双方将在5G通信、人工智能等领域开展深度合作。</p><p>根据协议，华为将为我校提供最新的技术设备和师资培训，我校将为华为输送优秀的技能型人才。这是我校首次与世界500强企业建立如此深度的合作关系。</p><p>校长李明表示："这次合作标志着我校在产教融合方面迈出了重要一步，将极大提升我校的教学质量和学生的就业竞争力。"</p>'
+                },
+                {
+                    id: 'news-6',
+                    title: '第六届毕业典礼圆满落幕',
+                    category: '毕业季',
+                    date: '2025-07-15',
+                    author: '学生处',
+                    image: 'https://images.unsplash.com/photo-1515169067868-52858225554a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+                    content: '<p>我校第六届毕业典礼于今日上午在学校体育馆隆重举行，共有856名毕业生圆满完成学业，即将踏上人生新征程。</p><p>本届毕业生就业率再创新高，达到98.5%，平均起薪较去年提升12%。其中，汽修专业毕业生更是供不应求，多家企业提前预定。</p><p>优秀毕业生代表张华同学发言时表示："三年的职业教育让我们掌握了扎实的技能，也培养了我们的职业素养。感谢母校的培养，我们将带着这份责任和担当走向社会。"</p>'
+                },
+                {
+                    id: 'news-7',
+                    title: '校园开放日：家长深入课堂体验教学',
+                    category: '教学交流',
+                    date: '2025-06-10',
+                    author: '教务处',
+                    image: 'https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+                    content: '<p>为了让家长更好地了解孩子的学习情况，我校于今日举办了校园开放日活动，邀请家长走进课堂，亲身体验教学过程。</p><p>家长们分别参观了汽修、电工、电子商务等专业的实训课堂，对我校先进的教学设备和专业的师资力量给予了高度评价。</p><p>一位家长表示："看到孩子们在这么好的环境中学习技能，我们很放心。老师的教学方法也很生动，孩子们学得很认真。"</p>'
+                },
+                {
+                    id: 'news-8',
+                    title: '夏季技能强化培训班招生简章',
+                    category: '招生信息',
+                    date: '2025-05-25',
+                    author: '招生办',
+                    image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+                    content: '<p>为满足社会对技能人才的需求，我校将于7月开设夏季技能强化培训班，面向社会招生。</p><p>培训班开设汽修、电工、电子商务、数控技术四个专业，采用全日制教学模式，为期三个月。学员完成培训并通过考核后，将获得我校颁发的职业技能证书。</p><p>报名时间：即日起至6月30日<br>培训时间：7月1日至9月30日<br>报名咨询：400-123-4567转8888</p>'
+                }
+            ];
+            // 保存到localStorage
+            localStorage.setItem('newsArticles', JSON.stringify(newsArticles));
+        }
+        
+        // 生成新闻列表
+        generateNewsList(newsArticles);
+        
+        // 生成新闻内容
+        generateNewsContent(newsArticles);
+    }
+    
+    // 生成新闻列表
+    function generateNewsList(newsArticles) {
+        const sidebar = document.getElementById('news-sidebar');
+        if (!sidebar) return;
+        
+        // 清空现有内容
+        sidebar.innerHTML = '';
+        
+        // 为每个新闻生成列表项
+        newsArticles.forEach((article, index) => {
+            const button = document.createElement('button');
+            button.className = 'news-tab text-left px-4 py-4 text-sm font-medium text-gray-600 hover:bg-gray-50 hover:text-primary border-l-4 border-transparent transition-all border-b border-gray-100';
+            if (index === 0) {
+                button.classList.add('active');
+            }
+            button.id = 'tab-' + article.id;
+            button.setAttribute('onclick', `switchNews('${article.id}')`);
+            
+            // 生成分类标签颜色
+            const categoryColors = {
+                '技能竞赛': 'bg-primary/10 text-primary',
+                '学校建设': 'bg-secondary/10 text-secondary',
+                '就业喜报': 'bg-green-100 text-green-700',
+                '校园生活': 'bg-purple-100 text-purple-700',
+                '校企合作': 'bg-blue-100 text-blue-700',
+                '毕业季': 'bg-yellow-100 text-yellow-700',
+                '教学交流': 'bg-indigo-100 text-indigo-700',
+                '招生信息': 'bg-teal-100 text-teal-700'
+            };
+            const categoryClass = categoryColors[article.category] || 'bg-gray-100 text-gray-700';
+            
+            button.innerHTML = `
+                <span class="inline-block ${categoryClass} px-2 py-1 rounded text-xs font-bold mr-2">${article.category}</span>
+                ${article.title}
+                <span class="block text-xs text-gray-400 font-normal mt-1">${article.date}</span>
+            `;
+            
+            sidebar.appendChild(button);
+        });
+    }
+    
+    // 生成新闻内容
+    function generateNewsContent(newsArticles) {
+        const container = document.getElementById('news-content-container');
+        if (!container) return;
+        
+        // 清空现有内容
+        container.innerHTML = '';
+        
+        // 为每个新闻生成内容
+        newsArticles.forEach((article, index) => {
+            const articleDiv = document.createElement('article');
+            articleDiv.className = `news-content ${index === 0 ? 'block' : 'hidden'} animate-fade-in`;
+            articleDiv.id = article.id;
+            
+            // 生成分类标签颜色
+            const categoryColors = {
+                '技能竞赛': 'bg-primary/10 text-primary',
+                '学校建设': 'bg-secondary/10 text-secondary',
+                '就业喜报': 'bg-green-100 text-green-700',
+                '校园生活': 'bg-purple-100 text-purple-700',
+                '校企合作': 'bg-blue-100 text-blue-700',
+                '毕业季': 'bg-yellow-100 text-yellow-700',
+                '教学交流': 'bg-indigo-100 text-indigo-700',
+                '招生信息': 'bg-teal-100 text-teal-700'
+            };
+            const categoryClass = categoryColors[article.category] || 'bg-gray-100 text-gray-700';
+            
+            articleDiv.innerHTML = `
+                <span class="inline-block ${categoryClass} px-3 py-1 rounded text-xs font-bold mb-4">${article.category}</span>
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">${article.title}</h2>
+                <div class="flex items-center text-gray-500 text-sm mb-8 pb-4 border-b border-gray-100">
+                    <span class="mr-4"><i class="fa-regular fa-calendar mr-2"></i>${article.date}</span>
+                    <span><i class="fa-regular fa-user mr-2"></i>${article.author}</span>
+                </div>
+                
+                <div class="prose max-w-none text-gray-600 space-y-4 leading-relaxed">
+                    <img src="${article.image}" alt="${article.title}" class="w-full h-64 object-cover rounded-lg mb-6">
+                    ${article.content}
+                </div>
+            `;
+            
+            container.appendChild(articleDiv);
+        });
+    }
+</script>
+</body>
+</html>
