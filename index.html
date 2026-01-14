@@ -9,18 +9,7 @@
     <link rel="stylesheet" href="css/tailwind.min.css">
     <link rel="stylesheet" href="css/all.min.css">
     
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#1d4ed8',   /* 务实蓝 */
-                        secondary: '#f97316', /* 活力橙 */
-                    }
-                }
-            }
-        }
-    </script>
+    
     <style>
         /* 简单的平滑滚动效果 */
         html { scroll-behavior: smooth; }
@@ -259,10 +248,10 @@
                             <div class="sticky top-24 space-y-1">
                                 <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 pl-3">目录导航</p>
                                 <a href="#section-video-auto" class="block px-3 py-2 rounded-md hover:bg-blue-50 hover:text-primary text-gray-600 text-sm font-medium transition">
-                                    <i class="fa-solid fa-circle-play mr-2 w-4"></i> 试听视频
+                                    <i class="fa-solid fa-circle-play mr-2 w-4"></i> 视频介绍
                                 </a>
                                 <a href="#section-industry-auto" class="block px-3 py-2 rounded-md hover:bg-blue-50 hover:text-primary text-gray-600 text-sm font-medium transition">
-                                    <i class="fa-solid fa-chart-line mr-2 w-4"></i> 行业介绍
+                                    <i class="fa-solid fa-chart-line mr-2 w-4"></i> 行业分析
                                 </a>
                                 <a href="#section-syllabus-auto" class="block px-3 py-2 rounded-md hover:bg-blue-50 hover:text-primary text-gray-600 text-sm font-medium transition">
                                     <i class="fa-solid fa-list-check mr-2 w-4"></i> 课程大纲
@@ -280,23 +269,23 @@
                         <main class="lg:col-span-7 space-y-12">
                             <section id="section-video-auto" class="scroll-mt-24">
                                 <h2 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
-                                    <span class="w-1 h-6 bg-secondary mr-3 rounded-full"></span> 课程实拍 / 试听
+                                    <span class="w-1 h-6 bg-secondary mr-3 rounded-full"></span> 课程介绍 / 实拍
                                 </h2>
-                                <div class="relative w-full aspect-video bg-gray-900 rounded-xl overflow-hidden shadow-lg group cursor-pointer">
-                                    <img src="images/video-thumbnail.jpg" 
-                                         alt="视频封面" class="w-full h-full object-cover opacity-60 group-hover:opacity-40 transition">
+                                <div onclick="playVideo('video/auto-repair.mp4')" class="relative w-full aspect-video bg-gray-900 rounded-xl overflow-hidden shadow-lg group cursor-pointer hover:shadow-2xl transition-all duration-300">
+                                    <img src="images/video-cover-auto.jpg" 
+                                        alt="视频封面" class="w-full h-full object-cover opacity-60 group-hover:opacity-40 transition">
                                     <div class="absolute inset-0 flex items-center justify-center">
-                                        <div class="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center pl-1 group-hover:scale-110 transition duration-300">
+                                        <div class="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center pl-1 group-hover:scale-110 transition duration-300 shadow-lg">
                                             <i class="fa-solid fa-play text-2xl text-primary"></i>
                                         </div>
                                     </div>
                                     <div class="absolute bottom-4 left-4 text-white text-sm font-medium bg-black/50 px-2 py-1 rounded">
-                                        <i class="fa-regular fa-clock mr-1"></i> 03:45 课程实录
+                                        <i class="fa-regular fa-clock mr-1"></i> 点击播放
                                     </div>
                                 </div>
                                 <p class="mt-2 text-sm text-gray-500">
                                     <i class="fa-solid fa-circle-info text-primary mr-1"></i> 
-                                    点击播放查看真实上课场景，拒绝"摆拍"宣传。
+                                    点击观看课程介绍 / 上课场景。
                                 </p>
                             </section>
 
@@ -518,19 +507,28 @@
 
                             <section id="section-gallery-auto" class="scroll-mt-24">
                                 <h2 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
-                                    <span class="w-1 h-6 bg-secondary mr-3 rounded-full"></span> 实训环境与作品
+                                    <span class="w-1 h-6 bg-secondary mr-3 rounded-full"></span> 教学环境 / 实训
                                 </h2>
                                 <div class="grid grid-cols-2 gap-4">
+    
                                     <div class="aspect-[4/3] bg-gray-200 rounded-lg overflow-hidden relative">
-                                        <img src="images/training-equipment.jpg" 
-                                             class="w-full h-full object-cover hover:scale-110 transition duration-500" alt="实训设备">
+                                        <img src="images/auto-1.jpg" class="w-full h-full object-cover hover:scale-110 transition duration-500" alt="实训场景1">
                                     </div>
+
                                     <div class="aspect-[4/3] bg-gray-200 rounded-lg overflow-hidden relative">
-                                        <img src="images/student-life.jpg" 
-                                             class="w-full h-full object-cover hover:scale-110 transition duration-500" alt="学员风采">
+                                        <img src="images/auto-2.jpg" class="w-full h-full object-cover hover:scale-110 transition duration-500" alt="实训场景2">
                                     </div>
+                                    
+                                    <div class="aspect-[4/3] bg-gray-200 rounded-lg overflow-hidden relative">
+                                        <img src="images/auto-3.jpg" class="w-full h-full object-cover hover:scale-110 transition duration-500" alt="实训场景3">
+                                    </div>
+
+                                    <div class="aspect-[4/3] bg-gray-200 rounded-lg overflow-hidden relative">
+                                        <img src="images/auto-4.jpg" class="w-full h-full object-cover hover:scale-110 transition duration-500" alt="实训场景4">
+                                    </div>
+                                    
                                 </div>
-                                <p class="mt-2 text-sm text-gray-500 text-center">所有设备人手一台，包教包会</p>
+                                
                             </section>
 
                             <section id="section-faq-auto" class="scroll-mt-24">
@@ -573,7 +571,7 @@
                                 <p class="text-lg text-blue-100 mb-4 max-w-2xl">低压电工证、装配电工、物业电工、电路布线。</p>
                                 <div class="flex flex-wrap justify-center md:justify-start gap-4 text-sm font-medium">
                                     <span class="bg-blue-800/50 px-3 py-1 rounded"><i class="fa-regular fa-clock mr-1"></i> 1个月</span>
-                                    <span class="bg-blue-800/50 px-3 py-1 rounded"><i class="fa-solid fa-yen-sign mr-1"></i> 月薪 4k-6k</span>
+                                    <span class="bg-blue-800/50 px-3 py-1 rounded"><i class="fa-solid fa-yen-sign mr-1"></i> 毕业月薪 5k+</span>
                                     <span class="bg-orange-500 px-3 py-1 rounded"><i class="fa-solid fa-fire mr-1"></i> 学费：1500元</span>
                                 </div>
                             </div>
@@ -585,10 +583,10 @@
                             <div class="sticky top-24 space-y-1">
                                 <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 pl-3">目录导航</p>
                                 <a href="#section-video-electric" class="block px-3 py-2 rounded-md hover:bg-blue-50 hover:text-primary text-gray-600 text-sm font-medium transition">
-                                    <i class="fa-solid fa-circle-play mr-2 w-4"></i> 试听视频
+                                    <i class="fa-solid fa-circle-play mr-2 w-4"></i> 视频介绍
                                 </a>
                                 <a href="#section-industry-electric" class="block px-3 py-2 rounded-md hover:bg-blue-50 hover:text-primary text-gray-600 text-sm font-medium transition">
-                                    <i class="fa-solid fa-chart-line mr-2 w-4"></i> 行业介绍
+                                    <i class="fa-solid fa-chart-line mr-2 w-4"></i> 行业分析
                                 </a>
                                 <a href="#section-syllabus-electric" class="block px-3 py-2 rounded-md hover:bg-blue-50 hover:text-primary text-gray-600 text-sm font-medium transition">
                                     <i class="fa-solid fa-list-check mr-2 w-4"></i> 课程大纲
@@ -606,10 +604,10 @@
                         <main class="lg:col-span-7 space-y-12">
                             <section id="section-video-electric" class="scroll-mt-24">
                                 <h2 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
-                                    <span class="w-1 h-6 bg-secondary mr-3 rounded-full"></span> 课程实拍 / 试听
+                                    <span class="w-1 h-6 bg-secondary mr-3 rounded-full"></span> 课程介绍 / 实拍
                                 </h2>
-                                <div class="relative w-full aspect-video bg-gray-900 rounded-xl overflow-hidden shadow-lg group cursor-pointer">
-                                    <img src="images/video-thumbnail.jpg" 
+                                <div onclick="playVideo('video/electrician.mp4')" class="relative w-full aspect-video bg-gray-900 rounded-xl overflow-hidden shadow-lg group cursor-pointer">
+                                    <img src="images/video-cover-elec.jpg" 
                                          alt="视频封面" class="w-full h-full object-cover opacity-60 group-hover:opacity-40 transition">
                                     <div class="absolute inset-0 flex items-center justify-center">
                                         <div class="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center pl-1 group-hover:scale-110 transition duration-300">
@@ -617,12 +615,12 @@
                                         </div>
                                     </div>
                                     <div class="absolute bottom-4 left-4 text-white text-sm font-medium bg-black/50 px-2 py-1 rounded">
-                                        <i class="fa-regular fa-clock mr-1"></i> 04:20 课程实录
+                                        <i class="fa-regular fa-clock mr-1"></i> 点击播放
                                     </div>
                                 </div>
                                 <p class="mt-2 text-sm text-gray-500">
                                     <i class="fa-solid fa-circle-info text-primary mr-1"></i> 
-                                    点击播放查看真实上课场景，拒绝"摆拍"宣传。
+                                    点击观看课程介绍 / 上课场景。
                                 </p>
                             </section>
 
@@ -705,19 +703,28 @@
 
                             <section id="section-gallery-electric" class="scroll-mt-24">
                                 <h2 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
-                                    <span class="w-1 h-6 bg-secondary mr-3 rounded-full"></span> 实训环境与作品
+                                    <span class="w-1 h-6 bg-secondary mr-3 rounded-full"></span> 教学环境 / 实训
                                 </h2>
                                 <div class="grid grid-cols-2 gap-4">
+    
                                     <div class="aspect-[4/3] bg-gray-200 rounded-lg overflow-hidden relative">
-                                        <img src="images/training-equipment.jpg" 
-                                             class="w-full h-full object-cover hover:scale-110 transition duration-500" alt="实训设备">
+                                        <img src="images/elec-1.jpg" class="w-full h-full object-cover hover:scale-110 transition duration-500" alt="实训场景1">
                                     </div>
+
                                     <div class="aspect-[4/3] bg-gray-200 rounded-lg overflow-hidden relative">
-                                        <img src="images/student-life.jpg" 
-                                             class="w-full h-full object-cover hover:scale-110 transition duration-500" alt="学员风采">
+                                        <img src="images/elec-2.jpg" class="w-full h-full object-cover hover:scale-110 transition duration-500" alt="实训场景2">
                                     </div>
+                                    
+                                    <div class="aspect-[4/3] bg-gray-200 rounded-lg overflow-hidden relative">
+                                        <img src="images/elec-3.jpg" class="w-full h-full object-cover hover:scale-110 transition duration-500" alt="实训场景3">
+                                    </div>
+
+                                    <div class="aspect-[4/3] bg-gray-200 rounded-lg overflow-hidden relative">
+                                        <img src="images/elec-4.jpg" class="w-full h-full object-cover hover:scale-110 transition duration-500" alt="实训场景4">
+                                    </div>
+                                    
                                 </div>
-                                <p class="mt-2 text-sm text-gray-500 text-center">所有设备人手一台，包教包会</p>
+                                
                             </section>
 
                             <section id="section-faq-electric" class="scroll-mt-24">
@@ -779,7 +786,7 @@
                                 <p class="text-lg text-blue-100 mb-4 max-w-2xl"> 内容运营、达人商务、店铺运营</p>
                                 <div class="flex flex-wrap justify-center md:justify-start gap-4 text-sm font-medium">
                                     <span class="bg-blue-800/50 px-3 py-1 rounded"><i class="fa-regular fa-clock mr-1"></i> 45天</span>
-                                    <span class="bg-blue-800/50 px-3 py-1 rounded"><i class="fa-solid fa-yen-sign mr-1"></i> 月薪 5k+</span>
+                                    <span class="bg-blue-800/50 px-3 py-1 rounded"><i class="fa-solid fa-yen-sign mr-1"></i> 毕业月薪 5k+</span>
                                     <span class="bg-orange-500 px-3 py-1 rounded"><i class="fa-solid fa-fire mr-1"></i> 学费：1999元（男），1499元（女）</span>
                                 </div>
                             </div>
@@ -791,10 +798,10 @@
                             <div class="sticky top-24 space-y-1">
                                 <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 pl-3">目录导航</p>
                                 <a href="#section-video-ecommerce" class="block px-3 py-2 rounded-md hover:bg-blue-50 hover:text-primary text-gray-600 text-sm font-medium transition">
-                                    <i class="fa-solid fa-circle-play mr-2 w-4"></i> 试听视频
+                                    <i class="fa-solid fa-circle-play mr-2 w-4"></i> 视频介绍
                                 </a>
                                 <a href="#section-industry-ecommerce" class="block px-3 py-2 rounded-md hover:bg-blue-50 hover:text-primary text-gray-600 text-sm font-medium transition">
-                                    <i class="fa-solid fa-chart-line mr-2 w-4"></i> 行业介绍
+                                    <i class="fa-solid fa-chart-line mr-2 w-4"></i> 行业分析
                                 </a>
                                 <a href="#section-syllabus-ecommerce" class="block px-3 py-2 rounded-md hover:bg-blue-50 hover:text-primary text-gray-600 text-sm font-medium transition">
                                     <i class="fa-solid fa-list-check mr-2 w-4"></i> 课程大纲
@@ -812,10 +819,10 @@
                         <main class="lg:col-span-7 space-y-12">
                             <section id="section-video-ecommerce" class="scroll-mt-24">
                                 <h2 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
-                                    <span class="w-1 h-6 bg-secondary mr-3 rounded-full"></span> 课程实拍 / 试听
+                                    <span class="w-1 h-6 bg-secondary mr-3 rounded-full"></span> 课程介绍 / 实拍
                                 </h2>
-                                <div class="relative w-full aspect-video bg-gray-900 rounded-xl overflow-hidden shadow-lg group cursor-pointer">
-                                    <img src="images/video-thumbnail.jpg" 
+                                <div onclick="playVideo('video/ecommerce.mp4')" class="relative w-full aspect-video bg-gray-900 rounded-xl overflow-hidden shadow-lg group cursor-pointer">
+                                    <img src="images/video-cover-eco.jpg" 
                                          alt="视频封面" class="w-full h-full object-cover opacity-60 group-hover:opacity-40 transition">
                                     <div class="absolute inset-0 flex items-center justify-center">
                                         <div class="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center pl-1 group-hover:scale-110 transition duration-300">
@@ -823,12 +830,12 @@
                                         </div>
                                     </div>
                                     <div class="absolute bottom-4 left-4 text-white text-sm font-medium bg-black/50 px-2 py-1 rounded">
-                                        <i class="fa-regular fa-clock mr-1"></i> 02:15 课程实录
+                                        <i class="fa-regular fa-clock mr-1"></i> 点击播放
                                     </div>
                                 </div>
                                 <p class="mt-2 text-sm text-gray-500">
                                     <i class="fa-solid fa-circle-info text-primary mr-1"></i> 
-                                    点击播放查看真实上课场景，拒绝"摆拍"宣传。
+                                    点击观看课程介绍 / 上课场景。
                                 </p>
                             </section>
 
@@ -877,19 +884,28 @@
 
                             <section id="section-gallery-ecommerce" class="scroll-mt-24">
                                 <h2 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
-                                    <span class="w-1 h-6 bg-secondary mr-3 rounded-full"></span> 实训环境与作品
+                                    <span class="w-1 h-6 bg-secondary mr-3 rounded-full"></span> 教学环境 / 实训
                                 </h2>
                                 <div class="grid grid-cols-2 gap-4">
+    
                                     <div class="aspect-[4/3] bg-gray-200 rounded-lg overflow-hidden relative">
-                                        <img src="images/training-equipment.jpg" 
-                                             class="w-full h-full object-cover hover:scale-110 transition duration-500" alt="实训设备">
+                                        <img src="images/eco-1.jpg" class="w-full h-full object-cover hover:scale-110 transition duration-500" alt="实训场景1">
                                     </div>
+
                                     <div class="aspect-[4/3] bg-gray-200 rounded-lg overflow-hidden relative">
-                                        <img src="images/student-life.jpg" 
-                                             class="w-full h-full object-cover hover:scale-110 transition duration-500" alt="学员风采">
+                                        <img src="images/eco-2.jpg" class="w-full h-full object-cover hover:scale-110 transition duration-500" alt="实训场景2">
                                     </div>
+                                    
+                                    <div class="aspect-[4/3] bg-gray-200 rounded-lg overflow-hidden relative">
+                                        <img src="images/eco-3.jpg" class="w-full h-full object-cover hover:scale-110 transition duration-500" alt="实训场景3">
+                                    </div>
+
+                                    <div class="aspect-[4/3] bg-gray-200 rounded-lg overflow-hidden relative">
+                                        <img src="images/eco-4.jpg" class="w-full h-full object-cover hover:scale-110 transition duration-500" alt="实训场景4">
+                                    </div>
+                                    
                                 </div>
-                                <p class="mt-2 text-sm text-gray-500 text-center">所有设备人手一台，包教包会</p>
+                                
                             </section>
 
                             <section id="section-faq-ecommerce" class="scroll-mt-24">
@@ -949,10 +965,7 @@
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
                         <aside class="hidden lg:block lg:col-span-2">
                             <div class="sticky top-24 space-y-1">
-                                <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 pl-3">目录导航</p>
-                                <a href="#section-video-job" class="block px-3 py-2 rounded-md hover:bg-blue-50 hover:text-primary text-gray-600 text-sm font-medium transition">
-                                    <i class="fa-solid fa-circle-play mr-2 w-4"></i> 试听视频
-                                </a>
+                    
                                 <a href="#section-industry-job" class="block px-3 py-2 rounded-md hover:bg-blue-50 hover:text-primary text-gray-600 text-sm font-medium transition">
                                     <i class="fa-solid fa-chart-line mr-2 w-4"></i> 课程目的
                                 </a>
@@ -965,27 +978,7 @@
                         </aside>
 
                         <main class="lg:col-span-7 space-y-12">
-                            <section id="section-video-job" class="scroll-mt-24">
-                                <h2 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
-                                    <span class="w-1 h-6 bg-secondary mr-3 rounded-full"></span> 课程实拍 / 试听
-                                </h2>
-                                <div class="relative w-full aspect-video bg-gray-900 rounded-xl overflow-hidden shadow-lg group cursor-pointer">
-                                    <img src="images/video-thumbnail.jpg" 
-                                         alt="视频封面" class="w-full h-full object-cover opacity-60 group-hover:opacity-40 transition">
-                                    <div class="absolute inset-0 flex items-center justify-center">
-                                        <div class="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center pl-1 group-hover:scale-110 transition duration-300">
-                                            <i class="fa-solid fa-play text-2xl text-primary"></i>
-                                        </div>
-                                    </div>
-                                    <div class="absolute bottom-4 left-4 text-white text-sm font-medium bg-black/50 px-2 py-1 rounded">
-                                        <i class="fa-regular fa-clock mr-1"></i> 01:30 课程实录
-                                    </div>
-                                </div>
-                                <p class="mt-2 text-sm text-gray-500">
-                                    <i class="fa-solid fa-circle-info text-primary mr-1"></i> 
-                                    点击播放查看真实上课场景，拒绝"摆拍"宣传。
-                                </p>
-                            </section>
+                
 
                             <section id="section-industry-job" class="scroll-mt-24">
                                 <h2 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
@@ -1012,25 +1005,25 @@
                                 <div class="space-y-4">
                                     <div class="bg-white border border-gray-200 rounded-lg p-5 hover:border-primary transition">
                                         <div class="flex justify-between items-start mb-2">
-                                            <h3 class="font-bold text-lg text-gray-800">第一阶段：求职准备（第1周）</h3>
+                                            <h3 class="font-bold text-lg text-gray-800">第一阶段：求职准备</h3>
                                         </div>
                                         <p class="text-gray-600 text-sm leading-relaxed">自我评估、职业规划、行业分析、目标岗位确定</p>
                                     </div>
                                     <div class="bg-white border border-gray-200 rounded-lg p-5 hover:border-primary transition">
                                         <div class="flex justify-between items-start mb-2">
-                                            <h3 class="font-bold text-lg text-gray-800">第二阶段：材料制作（第2周）</h3>
+                                            <h3 class="font-bold text-lg text-gray-800">第二阶段：材料制作</h3>
                                         </div>
                                         <p class="text-gray-600 text-sm leading-relaxed">简历优化、求职信撰写、作品集整理、在线形象建设</p>
                                     </div>
                                     <div class="bg-white border border-gray-200 rounded-lg p-5 hover:border-primary transition">
                                         <div class="flex justify-between items-start mb-2">
-                                            <h3 class="font-bold text-lg text-gray-800">第三阶段：面试技巧（第3周）</h3>
+                                            <h3 class="font-bold text-lg text-gray-800">第三阶段：面试技巧</h3>
                                         </div>
                                         <p class="text-gray-600 text-sm leading-relaxed">面试流程、常见问题、行为面试法、压力面试应对</p>
                                     </div>
                                     <div class="bg-white border border-gray-200 rounded-lg p-5 hover:border-primary transition">
                                         <div class="flex justify-between items-start mb-2">
-                                            <h3 class="font-bold text-lg text-gray-800">第四阶段：职场适应（第4周）</h3>
+                                            <h3 class="font-bold text-lg text-gray-800">第四阶段：职场适应</h3>
                                         </div>
                                         <p class="text-gray-600 text-sm leading-relaxed">入职准备、职场礼仪、人际关系、职业发展路径</p>
                                     </div>
@@ -1151,6 +1144,22 @@
         </div>
     </footer>
 
+<div id="video-modal" class="fixed inset-0 z-[100] hidden flex-col items-center justify-center bg-transparent">
+    
+    <div id="video-container" class="relative w-full max-w-4xl mx-4 bg-black rounded-lg overflow-hidden group outline-none border-4 border-white shadow-[0_0_50px_rgba(0,0,0,0.5)]">
+        
+        <button id="close-btn" class="absolute top-4 right-4 z-50 cursor-pointer text-white hover:text-secondary focus:outline-none bg-black/50 rounded-full w-10 h-10 flex items-center justify-center opacity-100 transition-opacity duration-300">
+            <i class="fa-solid fa-xmark text-2xl"></i>
+        </button>
+
+        <video id="promo-video" class="w-full h-auto aspect-video" controls>
+            您的浏览器不支持 HTML5 视频。
+        </video>
+    </div>
+</div>
+
+<script src="./blog-data.js"></script>
+<script src="./news-data.js"></script>
 <script>
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
@@ -1161,9 +1170,6 @@
 
         // 页面加载完成后执行
         document.addEventListener('DOMContentLoaded', function() {
-            // 初始加载新闻和博客数据
-            loadNewsData();
-            loadBlogData();
             // 加载动态数据
             loadHomeData();
 
@@ -1351,198 +1357,14 @@
             }
         });
 
-    function loadNewsData() {
-        // 从localStorage获取新闻数据
-        let newsArticles = JSON.parse(localStorage.getItem('newsArticles') || '[]');
-        
-        // 如果没有数据，初始化一些默认数据
-        if (newsArticles.length === 0) {
-            newsArticles = [
-                {
-                    id: 'news-1',
-                    title: '喜报！我校学员斩获市级电工技能大赛金奖',
-                    category: '技能竞赛',
-                    date: '2025-10-22',
-                    author: '教务处',
-                    image: 'images/skills-competition.jpg',
-                    content: '<p>在刚刚结束的第十五届职业技能大赛中，我校电工班学员凭借扎实的实操功底，从500名选手中脱颖而出，一举夺得金奖。这是我校连续第三年在此项赛事中获得殊荣。</p><p>本次大赛由市人力资源和社会保障局主办，旨在弘扬工匠精神，选拔高技能人才。比赛内容涵盖了电路设计、故障排查、PLC编程等多个高难度环节。</p><p>获奖学员王强在接受采访时表示："感谢学校提供的实训设备和老师们的悉心指导，每天在实训室的反复练习，让我在赛场上能够从容应对各种突发状况。"</p><p class="font-bold text-gray-800 mt-4">学校决定对获奖学员及指导教师团队通报表扬，并奖励现金 5000 元。</p>'
-                },
-                {
-                    id: 'news-2',
-                    title: '接轨大厂！千万级新能源汽修实训中心落成',
-                    category: '学校建设',
-                    date: '2025-09-15',
-                    author: '校办',
-                    image: 'images/new-campus.jpg',
-                    content: '<p>为了让学员掌握最新技术，学校斥资引进特斯拉、比亚迪全套检修设备，实训环境1:1还原4S店。新的实训中心占地2000平米，配备了最新的电池包检测系统和电机维修平台。</p><p>随着新能源汽车市场的爆发式增长，掌握高压电控维修技术的人才供不应求。我校此次升级实训设施，正是为了填补这一市场空缺。</p>'
-                },
-                {
-                    id: 'news-3',
-                    title: '秋季大型双选会：300家企业入校抢人',
-                    category: '就业喜报',
-                    date: '2025-09-08',
-                    author: '就业处',
-                    image: 'images/job-fair.jpg',
-                    content: '<p>本次招聘会涵盖汽修、电工、电商三大板块，现场签订就业意向书达1200份，平均起薪同比上涨15%。</p><p>众多知名企业如上汽大众、京东物流、国家电网外包公司等均派代表来到现场。企业普遍反映，我校毕业生动手能力强，上手快，无需二次培训即可上岗。</p>'
-                },
-                {
-                    id: 'news-4',
-                    title: '"迎新杯"篮球赛决赛：汽修班逆风翻盘',
-                    category: '校园生活',
-                    date: '2025-10-01',
-                    author: '学生处',
-                    image: 'images/basketball-game.jpg',
-                    content: '<p>热血青春，激情碰撞！在昨日的决赛中，汽修二班在落后10分的情况下，凭着顽强的意志，在最后2分钟完成惊天逆转，最终以78:76战胜了电工一班。</p><p>这场比赛展现了我们职校学子不仅技能过硬，在体育竞技场上同样拥有不服输的精神。</p>'
-                },
-                {
-                    id: 'news-5',
-                    title: '我校与华为达成战略合作协议',
-                    category: '校企合作',
-                    date: '2025-08-20',
-                    author: '校办',
-                    image: 'images/cooperation-signing.jpg',
-                    content: '<p>今日上午，我校与华为技术有限公司在华为深圳总部举行战略合作签约仪式。双方将在5G通信、人工智能等领域开展深度合作。</p><p>根据协议，华为将为我校提供最新的技术设备和师资培训，我校将为华为输送优秀的技能型人才。这是我校首次与世界500强企业建立如此深度的合作关系。</p><p>校长李明表示："这次合作标志着我校在产教融合方面迈出了重要一步，将极大提升我校的教学质量和学生的就业竞争力。"</p>'
-                },
-                {
-                    id: 'news-6',
-                    title: '第六届毕业典礼圆满落幕',
-                    category: '毕业季',
-                    date: '2025-07-15',
-                    author: '学生处',
-                    image: 'images/graduation-ceremony.jpg',
-                    content: '<p>我校第六届毕业典礼于今日上午在学校体育馆隆重举行，共有856名毕业生圆满完成学业，即将踏上人生新征程。</p><p>本届毕业生就业率再创新高，达到98.5%，平均起薪较去年提升12%。其中，汽修专业毕业生更是供不应求，多家企业提前预定。</p><p>优秀毕业生代表张华同学发言时表示："三年的职业教育让我们掌握了扎实的技能，也培养了我们的职业素养。感谢母校的培养，我们将带着这份责任和担当走向社会。"</p>'
-                },
-                {
-                    id: 'news-7',
-                    title: '校园开放日：家长深入课堂体验教学',
-                    category: '教学交流',
-                    date: '2025-06-10',
-                    author: '教务处',
-                    image: 'images/practical-training.jpg',
-                    content: '<p>为了让家长更好地了解孩子的学习情况，我校于今日举办了校园开放日活动，邀请家长走进课堂，亲身体验教学过程。</p><p>家长们分别参观了汽修、电工、电子商务等专业的实训课堂，对我校先进的教学设备和专业的师资力量给予了高度评价。</p><p>一位家长表示："看到孩子们在这么好的环境中学习技能，我们很放心。老师的教学方法也很生动，孩子们学得很认真。"</p>'
-                },
-                {
-                    id: 'news-8',
-                    title: '夏季技能强化培训班招生简章',
-                    category: '招生信息',
-                    date: '2025-05-25',
-                    author: '招生办',
-                    image: 'images/job-fair.jpg',
-                    content: '<p>为满足社会对技能人才的需求，我校将于7月开设夏季技能强化培训班，面向社会招生。</p><p>培训班开设汽修、电工、电子商务、数控技术四个专业，采用全日制教学模式，为期三个月。学员完成培训并通过考核后，将获得我校颁发的职业技能证书。</p><p>报名时间：即日起至6月30日<br>培训时间：7月1日至9月30日<br>报名咨询：400-123-4567转8888</p>'
-                }
-            ];
-            // 保存到localStorage
-            localStorage.setItem('newsArticles', JSON.stringify(newsArticles));
-        }
-    }
     // 从localStorage加载博客数据并生成页面内容
-    function loadBlogData() {
-        // 从localStorage获取博客数据
-        let blogArticles = JSON.parse(localStorage.getItem('blogArticles') || '[]');
-        
-        // 如果没有数据，初始化一些默认数据
-        if (blogArticles.length === 0) {
-            blogArticles = [
-                {
-                    id: 'blog-1',
-                    title: '新能源汽车维修技术发展趋势分析',
-                    category: '技术分析',
-                    date: '2025-10-15',
-                    author: '技术研究部',
-                    image: 'images/electric-car-tech.jpg',
-                    content: '<p>随着全球环保意识的增强和政策推动，新能源汽车市场呈现爆发式增长。据行业数据显示，2025年新能源汽车销量预计将突破1500万辆，占全球汽车总销量的20%以上。</p><h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">技术发展趋势</h3><p>1. <strong>电池技术革新：</strong>固态电池将成为主流，能量密度更高、充电速度更快、安全性更强。预计到2027年，固态电池成本将下降50%。</p><p>2. <strong>智能化维修：</strong>AI诊断系统和AR辅助维修技术将大幅提升维修效率和准确性。</p><p>3. <strong>模块化设计：</strong>车辆核心部件趋向模块化，便于快速更换和升级。</p><h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">技能要求变化</h3><p>传统机械维修技能正在向电子电气、软件系统维护转变。维修技师需要掌握：</p><ul class="list-disc pl-6 space-y-2"><li>高压电安全操作规范</li><li>电池管理系统诊断</li><li>电机控制器原理与维修</li><li>车载网络通信协议</li></ul><h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">培训建议</h3><p>针对新能源汽车维修技术的发展趋势，建议培训机构：</p><ol class="list-decimal pl-6 space-y-2"><li>更新实训设备，引入最新车型进行实操训练</li><li>加强理论教学，重点讲解电化学和电力电子知识</li><li>与车企合作，定期组织技术交流和认证培训</li></ol><p class="font-bold text-gray-800 mt-6">结语：新能源汽车维修技术正处于快速发展期，从业人员需要持续学习新技术，才能适应行业发展需求。</p>'
-                },
-                {
-                    id: 'blog-2',
-                    title: '工业4.0时代下的电工技能新要求',
-                    category: '技术前沿',
-                    date: '2025-09-20',
-                    author: '电气工程系',
-                    image: 'images/industry4-tech.jpg',
-                    content: '<p>工业4.0时代的到来，标志着制造业进入智能化、数字化的新阶段。传统的电工技能已无法满足现代工业生产的需求，电工技术人员面临着前所未有的挑战和机遇。</p><h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">核心技能转变</h3><p>1. <strong>自动化控制系统：</strong>掌握PLC编程、SCADA系统操作、工业机器人调试等技能。</p><p>2. <strong>物联网技术：</strong>理解传感器网络、数据采集与传输、边缘计算等概念。</p><p>3. <strong>数据分析能力：</strong>具备基础的数据分析技能，能够解读设备运行数据，预测故障。</p><h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">新兴技术领域</h3><p>• 工业互联网平台应用<br>• 数字孪生技术<br>• 5G工业应用场景<br>• 人工智能在设备维护中的应用</p><h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">职业发展建议</h3><p>面对技术变革，电工技术人员应当：</p><div class="bg-blue-50 p-4 rounded-lg my-4"><p><i class="fa-solid fa-lightbulb text-yellow-500 mr-2"></i>持续学习新技术，每年至少参加一次专业培训或认证考试</p></div><div class="bg-green-50 p-4 rounded-lg my-4"><p><i class="fa-solid fa-hands-helping text-green-500 mr-2"></i>注重跨学科知识积累，特别是计算机和通信技术</p></div><div class="bg-purple-50 p-4 rounded-lg my-4"><p><i class="fa-solid fa-chart-line text-purple-500 mr-2"></i>培养系统思维和问题解决能力，从单一技能向综合能力转变</p></div><p class="font-bold text-gray-800 mt-6">展望：掌握工业4.0核心技术的电工人才将成为制造业转型升级的重要推动力。</p>'
-                },
-                {
-                    id: 'blog-3',
-                    title: '电商平台运营策略深度解析',
-                    category: '电商运营',
-                    date: '2025-08-30',
-                    author: '电子商务系',
-                    image: 'images/ecommerce.jpg',
-                    content: '<p>在竞争日益激烈的电商市场中，有效的运营策略是商家成功的关键。本文将从多个维度分析当前主流电商平台的运营策略，为从业者提供参考。</p><h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">流量获取策略</h3><p>1. <strong>内容营销：</strong>通过短视频、直播、图文等形式吸引用户关注，提高品牌曝光度。</p><p>2. <strong>社交电商：</strong>利用微信、抖音等社交平台，构建私域流量池。</p><p>3. <strong>搜索引擎优化：</strong>优化商品标题、关键词，提高自然搜索排名。</p><h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">转化率提升方法</h3><p>• 商品详情页优化：高质量图片、详细参数、真实评价<br>• 价格策略：动态定价、限时折扣、满减优惠<br>• 客服响应：7×24小时在线客服，快速响应用户咨询<br>• 物流体验：当日达、次日达服务提升用户满意度</p><h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">客户留存机制</h3><p>建立会员体系，通过积分、等级权益等方式增强用户粘性；定期推送个性化推荐，提高复购率；举办会员专享活动，营造尊贵感。</p><h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">数据分析应用</h3><p>运用大数据分析用户行为，精准定位目标客户群体；通过A/B测试优化页面设计和营销活动；监控关键指标如转化率、客单价、复购率等，及时调整策略。</p><p class="font-bold text-gray-800 mt-6">总结：成功的电商运营需要综合运用多种策略，持续优化用户体验，才能在激烈竞争中脱颖而出。</p>'
-                },
-                {
-                    id: 'blog-4',
-                    title: '数控机床编程与操作技巧',
-                    category: '技术教程',
-                    date: '2025-07-25',
-                    author: '机械工程系',
-                    image: 'images/cnc-machine.jpg',
-                    content: '<p>数控机床作为现代制造业的核心设备，其编程与操作技能直接影响产品质量和生产效率。本文将介绍数控机床的基本编程方法和实用操作技巧。</p><h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">编程基础知识</h3><p>1. <strong>坐标系设定：</strong>G54-G59指令用于设定工件坐标系，是编程的基础。</p><p>2. <strong>插补指令：</strong>G00快速定位、G01直线插补、G02/G03圆弧插补。</p><p>3. <strong>刀具补偿：</strong>G41/G42刀具半径补偿，G43/G44刀具长度补偿。</p><h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">操作技巧要点</h3><p>• 对刀操作：使用寻边器或对刀仪精确确定工件位置<br>• 程序验证：通过仿真软件或空运行检查程序正确性<br>• 切削参数：根据材料特性合理选择主轴转速、进给速度<br>• 冷却润滑：适时使用冷却液，延长刀具寿命</p><h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">常见问题处理</h3><p><strong>尺寸超差：</strong>检查刀具磨损情况，重新对刀，核实坐标系设定。</p><p><strong>表面粗糙：</strong>降低进给速度，检查刀具刃口，改善冷却条件。</p><p><strong>报警提示：</strong>根据报警代码查阅手册，针对性解决故障。</p><h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">安全注意事项</h3><p>操作数控机床必须严格遵守安全规程：<br>1. 穿戴好防护用品<br>2. 开机前检查设备状态<br>3. 运行中不得离开岗位<br>4. 发现异常立即停机检查</p><p class="font-bold text-gray-800 mt-6">提示：熟练掌握数控编程与操作需要大量实践，建议学员在实训中多动手操作，积累经验。</p>'
-                },
-                {
-                    id: 'blog-5',
-                    title: '职业教育与产业发展的深度融合路径',
-                    category: '教育研究',
-                    date: '2025-06-18',
-                    author: '教育研究院',
-                    image: 'images/education-research.jpg',
-                    content: '<p>产教融合是新时代职业教育改革发展的核心命题，也是推动产业转型升级的重要途径。如何实现职业教育与产业发展的深度融合，已成为教育界和产业界共同关注的重大课题。</p><h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">融合发展的必要性</h3><p>1. <strong>人才供需匹配：</strong>解决技能人才供给与产业需求脱节的问题。</p><p>2. <strong>技术创新驱动：</strong>促进教育链、人才链与产业链、创新链有机衔接。</p><p>3. <strong>教育质量提升：</strong>通过产业实践反哺教育教学，提高人才培养质量。</p><h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">深度融合的关键路径</h3><p>• <strong>共建共享机制：</strong>校企共同制定人才培养方案，共建实训基地<br>• <strong>双师型队伍建设：</strong>聘请企业专家担任兼职教师，安排教师到企业实践<br>• <strong>项目化教学：</strong>以真实项目为载体，让学生在实践中掌握技能<br>• <strong>评价体系改革：</strong>引入企业评价标准，建立多元化考核机制</p><h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">实施策略建议</h3><p>政府层面应完善政策支持体系，设立产教融合发展专项资金；院校层面要主动对接产业需求，调整专业设置；企业层面需积极参与人才培养，提供实习实训条件。</p><h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">未来发展方向</h3><p>随着数字经济发展，产教融合将向智能化、平台化方向发展。虚拟仿真、人工智能等技术的应用将进一步提升融合效果，形成教育与产业协同发展的新格局。</p><p class="font-bold text-gray-800 mt-6">结论：深化产教融合是一项系统工程，需要政府、院校、企业协同发力，才能实现互利共赢。</p>'
-                },
-                {
-                    id: 'blog-6',
-                    title: 'AI技术在技能培训中的应用前景',
-                    category: '技术前瞻',
-                    date: '2025-05-10',
-                    author: '智能教育研究中心',
-                    image: 'images/ai-education.jpg',
-                    content: '<p>人工智能技术的快速发展正在深刻改变教育培训领域，为技能培训带来了前所未有的机遇。AI技术在个性化学习、智能评估、虚拟实训等方面展现出巨大潜力。</p><h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">个性化学习系统</h3><p>基于学习者的行为数据和认知特征，AI能够构建个性化的学习路径：<br>• 智能推荐适合的学习内容和难度<br>• 实时调整学习进度和节奏<br>• 提供针对性的学习建议和辅导</p><h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">智能评估与反馈</h3><p>AI技术可以实现：<br>• 自动批改作业和考试，提高评估效率<br>• 分析学习薄弱环节，提供精准反馈<br>• 预测学习成果，预警潜在问题</p><h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">虚拟现实实训</h3><p>结合VR/AR技术，AI能够创建沉浸式实训环境：<br>• 模拟危险或昂贵的实验场景<br>• 提供安全的实践操作平台<br>• 记录操作过程，进行智能分析</p><h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">挑战与对策</h3><p>尽管AI技术前景广阔，但也面临数据隐私、技术成本、教师角色转变等挑战。需要在推广应用的同时，建立健全相关制度和规范，确保技术应用的安全性和有效性。</p><p class="font-bold text-gray-800 mt-6">展望：随着技术不断成熟，AI将成为技能培训的重要支撑，推动教育模式的根本性变革。</p>'
-                },
-                {
-                    id: 'blog-7',
-                    title: '工业机器人维护保养要点',
-                    category: '技术分析',
-                    date: '2025-04-15',
-                    author: '技术研究部',
-                    image: 'images/cnc-machine.jpg',
-                    content: '<p>工业机器人作为现代制造业的重要组成部分，其稳定运行对生产效率至关重要。正确的维护保养不仅能延长设备使用寿命，还能避免意外停机造成的损失。</p><h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">日常维护要点</h3><p>1. <strong>清洁保养：</strong>定期清理机器人本体和控制柜，防止灰尘积累影响散热。</p><p>2. <strong>润滑检查：</strong>按照厂家要求定期更换关节部位润滑油，确保运动顺畅。</p><p>3. <strong>电缆检查：</strong>检查各连接电缆是否有破损、老化现象，及时更换。</p><h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">定期保养项目</h3><p>• 每月检查：电池电压、气压系统、传感器状态</p><p>• 每季度检查：减速器噪音、电机温度、编码器精度</p><p>• 年度检查：机械部件磨损、电气连接紧固、备份数据</p><h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">故障预防措施</h3><p>建立完善的维护记录档案，制定预防性维护计划，培训操作人员掌握基本故障判断方法。</p><p class="font-bold text-gray-800 mt-6">结语：科学的维护保养是保障工业机器人高效运行的基础，企业应建立专业的维护团队和管理制度。</p>'
-                },
-                {
-                    id: 'blog-8',
-                    title: '现代焊接技术发展趋势',
-                    category: '技术前沿',
-                    date: '2025-03-20',
-                    author: '电气工程系',
-                    image: 'images/industry4-tech.jpg',
-                    content: '<p>随着制造业对精度和效率要求的不断提高，现代焊接技术正朝着自动化、智能化方向快速发展。激光焊接、摩擦搅拌焊等新工艺正在改变传统焊接模式。</p><h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">先进焊接工艺</h3><p>1. <strong>激光焊接：</strong>热影响区小，焊接速度快，适合精密部件连接。</p><p>2. <strong>电子束焊接：</strong>可在真空环境下进行，焊缝质量高，穿透力强。</p><p>3. <strong>摩擦搅拌焊：</strong>适用于铝合金等轻质材料，焊后变形小。</p><h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">自动化焊接系统</h3><p>• 焊接机器人集成视觉识别系统，实现自适应焊接</p><p>• 离线编程技术提高生产效率</p><p>• 远程监控和故障诊断功能</p><h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">技能要求变化</h3><p>现代焊接技术人员需要掌握编程、调试、维护等多项技能，同时具备材料学、机械设计等相关知识。</p><p class="font-bold text-gray-800 mt-6">展望：随着新材料和新工艺的不断涌现，焊接技术人员需要持续学习，跟上技术发展步伐。</p>'
-                },
-                {
-                    id: 'blog-9',
-                    title: '3D打印技术在制造业的应用',
-                    category: '技术应用',
-                    date: '2025-02-10',
-                    author: '机械工程系',
-                    image: 'images/electric-car-tech.jpg',
-                    content: '<p>3D打印技术作为一种颠覆性制造工艺，正在重塑传统生产模式。从原型制作到批量生产，3D打印在制造业中的应用越来越广泛。</p><h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">主要应用领域</h3><p>1. <strong>原型制作：</strong>快速验证产品设计，缩短开发周期。</p><p>2. <strong>定制化生产：</strong>满足个性化需求，降低小批量生产成本。</p><p>3. <strong>复杂结构制造：</strong>实现传统工艺难以加工的复杂几何形状。</p><h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">材料技术进展</h3><p>• 金属粉末材料性能不断提升</p><p>• 多材料复合打印技术日趋成熟</p><p>• 生物材料在医疗领域的应用</p><h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">产业化挑战</h3><p>尽管3D打印技术发展迅速，但仍面临打印速度慢、材料成本高、精度有待提升等问题。</p><p class="font-bold text-gray-800 mt-6">前景：随着技术不断进步和成本下降，3D打印将在更多制造领域发挥重要作用。</p>'
-                },
-                {
-                    id: 'blog-10',
-                    title: '智能制造人才培养策略',
-                    category: '教育研究',
-                    date: '2025-01-05',
-                    author: '教育研究院',
-                    image: 'images/education-research.jpg',
-                    content: '<p>智能制造时代的到来对人才提出了新要求，传统教育模式已难以满足产业发展需求。构建适应智能制造的人才培养体系成为当务之急。</p><h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">能力需求分析</h3><p>1. <strong>跨学科知识：</strong>机械、电子、计算机、管理等多学科融合。</p><p>2. <strong>创新能力：</strong>具备解决复杂工程问题的创新思维。</p><p>3. <strong>终身学习：</strong>适应技术快速更新的持续学习能力。</p><h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">培养模式创新</h3><p>• 校企合作共建实训基地</p><p>• 项目驱动式教学方法</p><p>• 国际化视野培养</p><h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">评价体系改革</h3><p>建立多元化评价体系，注重实践能力和综合素质考核，引入行业标准和企业评价。</p><p class="font-bold text-gray-800 mt-6">结语：智能制造人才培养是一项系统工程，需要政府、院校、企业协同推进，共同构建人才培养新生态。</p>'
-                }
-            ];
-            // 保存到localStorage
-            localStorage.setItem('blogArticles', JSON.stringify(blogArticles));
-        }
-    }
-        // 新增：从localStorage加载首页数据
+    // 新增：加载首页数据
     function loadHomeData() {
         // 1. 获取数据
-        const news = JSON.parse(localStorage.getItem('newsArticles') || '[]');
-        const blogs = JSON.parse(localStorage.getItem('blogArticles') || '[]');
+        //直接使用全局变量 ALL_NEWS_DATA，如果没加载则为空数组
+        const news = (typeof ALL_NEWS_DATA !== 'undefined') ? ALL_NEWS_DATA : [];
+        //直接使用全局变量 ALL_BLOG_DATA，如果没加载则为空数组
+        const blogs = (typeof ALL_BLOG_DATA !== 'undefined') ? ALL_BLOG_DATA : [];
         
         // 2. 渲染新闻 (取前3条)
         const newsContainer = document.getElementById('content-skill');
@@ -1590,6 +1412,245 @@
             `).join('');
         }
     }
+
+    /* =========================================
+       视频弹窗控制逻辑
+       ========================================= */
+    const modal = document.getElementById('video-modal');
+    const videoContainer = document.getElementById('video-container');
+    const videoPlayer = document.getElementById('promo-video');
+    const closeBtn = document.getElementById('close-btn');
+    
+    let activityTimer = null;
+    let isUIHidden = false; 
+    
+    // [标记]：区分音量变化来源 (键盘 vs 鼠标)
+    let isKeyboardVolumeControl = false;
+
+    // --- 0. 初始化绝对防御 (CSS 注入 + 属性设置) ---
+    const style = document.createElement('style');
+    style.innerHTML = `
+        video:focus { outline: none !important; }
+        video::-webkit-media-controls-play-button:focus,
+        video::-webkit-media-controls-volume-slider:focus,
+        video::-webkit-media-controls-mute-button:focus,
+        video::-webkit-media-controls-timeline:focus,
+        video::-webkit-media-controls-current-time-display:focus,
+        video::-webkit-media-controls-fullscreen-button:focus {
+            outline: none !important;
+            box-shadow: none !important;
+        }
+    `;
+    document.head.appendChild(style);
+
+    if (videoPlayer) {
+        videoPlayer.setAttribute('tabindex', '-1'); 
+        videoPlayer.style.outline = 'none';         
+    }
+
+    // --- 1. 核心功能：打开/关闭 ---
+    function playVideo(path) {
+        if (!modal || !videoPlayer) return;
+        videoPlayer.src = path;
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        showUI(); 
+        videoPlayer.load();
+        const playPromise = videoPlayer.play();
+        if (playPromise !== undefined) {
+            playPromise.catch(e => console.log("自动播放被拦截:", e));
+        }
+        forceBlur(); 
+        startInactivityTimer();
+    }
+
+    function closeVideoModal() {
+        if (!modal || !videoPlayer) return;
+        videoPlayer.pause();
+        videoPlayer.src = ""; 
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        if (activityTimer) clearTimeout(activityTimer);
+    }
+
+    // --- 2. 焦点强制剥离系统 ---
+    function forceBlur() {
+        if (document.activeElement === videoPlayer || document.activeElement === closeBtn) {
+            document.activeElement.blur(); 
+            modal.focus(); 
+        }
+    }
+
+    // --- 3. UI 显隐控制 ---
+    function hideUI() {
+        isUIHidden = true;
+        if (closeBtn) {
+            closeBtn.style.transition = 'none'; 
+            closeBtn.style.opacity = '0';
+            closeBtn.style.pointerEvents = 'none';
+        }
+        if (videoPlayer && !videoPlayer.paused) {
+            videoPlayer.controls = false; 
+        }
+        if (videoContainer) {
+            videoContainer.style.cursor = 'none';
+        }
+    }
+
+    function showUI() {
+        isUIHidden = false;
+        if (closeBtn) {
+            requestAnimationFrame(() => {
+                closeBtn.style.transition = 'opacity 0.3s ease'; 
+                closeBtn.style.opacity = '1';
+                closeBtn.style.pointerEvents = 'auto'; 
+                closeBtn.style.cursor = 'pointer';     
+            });
+        }
+        if (videoPlayer) {
+            videoPlayer.controls = true;
+        }
+        if (videoContainer) {
+            videoContainer.style.cursor = 'default';
+        }
+    }
+
+    function startInactivityTimer(delay = 3000) {
+        if (isUIHidden) {
+            showUI();
+        } 
+        else if (videoPlayer) {
+            // 唤醒原生控件
+            videoPlayer.dispatchEvent(new MouseEvent('mousemove', {bubbles: true}));
+        }
+        
+        if (activityTimer) clearTimeout(activityTimer);
+        activityTimer = setTimeout(hideUI, delay);
+    }
+
+    // --- 4. 事件监听绑定 ---
+    if (modal) {
+        const controlEvents = ['seeked', 'play', 'pause', 'ratechange', 'volumechange'];
+        
+        controlEvents.forEach(evt => {
+            videoPlayer.addEventListener(evt, () => {
+                forceBlur();
+
+                if (evt === 'pause') {
+                    if (activityTimer) clearTimeout(activityTimer); 
+                    showUI();
+                } 
+                else if (evt === 'volumechange') {
+                    if (isKeyboardVolumeControl) {
+                        isKeyboardVolumeControl = false; 
+                        return; 
+                    }
+                    startInactivityTimer(3000); 
+                }
+                else {
+                    startInactivityTimer(3000);
+                }
+            });
+        });
+
+        window.addEventListener('mouseup', () => {
+            if (!modal.classList.contains('hidden')) {
+                setTimeout(forceBlur, 10);
+            }
+        });
+
+        // [修复点在这里]：防止死循环
+        modal.addEventListener('mousemove', (e) => {
+            // 只有当是用户真实的鼠标移动时，才重置计时器
+            // 忽略由脚本产生的 mousemove 事件
+            if (e.isTrusted) {
+                startInactivityTimer(3000);
+            }
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeVideoModal();
+            }
+        });
+
+        if (closeBtn) {
+            closeBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation(); 
+                closeVideoModal();
+            });
+        }
+    }
+
+    // --- 5. 键盘控制 (音量控制：1秒自动隐藏) ---
+    function executeVideoCommand(action) {
+        if (action === 'toggle') {
+            if (videoPlayer.paused) videoPlayer.play();
+            else videoPlayer.pause();
+        } 
+        else if (action === 'forward') {
+            if (videoPlayer.currentTime + 5 < videoPlayer.duration) videoPlayer.currentTime += 5;
+            else videoPlayer.currentTime = videoPlayer.duration;
+            startInactivityTimer(3000);
+        } 
+        else if (action === 'rewind') {
+            if (videoPlayer.currentTime - 5 > 0) videoPlayer.currentTime -= 5;
+            else videoPlayer.currentTime = 0;
+            startInactivityTimer(3000);
+        }
+        else if (action === 'volume-up') {
+            isKeyboardVolumeControl = true; // 标记键盘操作
+            // 音量增加 10%
+            let newVol = Math.min(1, (Math.round(videoPlayer.volume * 10) + 1) / 10);
+            videoPlayer.volume = newVol; 
+            
+            // 设定 1秒 (1000毫秒) 后消失，完美模拟“鼠标移开”的效果
+            startInactivityTimer(1000); 
+        }
+        else if (action === 'volume-down') {
+            isKeyboardVolumeControl = true; // 标记键盘操作
+            // 音量减少 10%
+            let newVol = Math.max(0, (Math.round(videoPlayer.volume * 10) - 1) / 10);
+            videoPlayer.volume = newVol; 
+            
+            startInactivityTimer(1000); 
+        }
+
+        forceBlur(); 
+    }
+
+    document.addEventListener('keydown', function(event) {
+        if (modal.classList.contains('hidden')) return;
+
+        const code = event.code;
+        const key = event.key;
+        
+        if (key === 'Tab') {
+            event.preventDefault();
+            event.stopPropagation();
+            return;
+        }
+
+        // 包含 ArrowUp 和 ArrowDown
+        const isControlKey = ['Space', 'ArrowRight', 'ArrowLeft', 'ArrowUp', 'ArrowDown'].includes(code) || key === ' ';
+
+        if (isControlKey) {
+            event.preventDefault(); 
+            event.stopPropagation(); 
+            if (event.repeat) return; 
+
+            if (code === 'Space' || key === ' ') executeVideoCommand('toggle');
+            else if (code === 'ArrowRight') executeVideoCommand('forward');
+            else if (code === 'ArrowLeft') executeVideoCommand('rewind');
+            else if (code === 'ArrowUp') executeVideoCommand('volume-up');
+            else if (code === 'ArrowDown') executeVideoCommand('volume-down');
+        } 
+        else if (key === "Escape") {
+            closeVideoModal();
+        }
+    }, true);
+
 </script>
 </body>
 </html>
