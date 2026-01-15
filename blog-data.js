@@ -64,15 +64,6 @@ const ALL_BLOG_DATA = [
                 },
                 {
                     id: 'blog-8',
-                    title: '3D打印技术在制造业的应用',
-                    category: '技术应用',
-                    date: '2025-02-10',
-                    
-                    image: 'images/electric-car-tech.jpg',
-                    content: '<p>3D打印技术作为一种颠覆性制造工艺，正在重塑传统生产模式。从原型制作到批量生产，3D打印在制造业中的应用越来越广泛。</p><h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">主要应用领域</h3><p>1. <strong>原型制作：</strong>快速验证产品设计，缩短开发周期。</p><p>2. <strong>定制化生产：</strong>满足个性化需求，降低小批量生产成本。</p><p>3. <strong>复杂结构制造：</strong>实现传统工艺难以加工的复杂几何形状。</p><h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">材料技术进展</h3><p>• 金属粉末材料性能不断提升</p><p>• 多材料复合打印技术日趋成熟</p><p>• 生物材料在医疗领域的应用</p><h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">产业化挑战</h3><p>尽管3D打印技术发展迅速，但仍面临打印速度慢、材料成本高、精度有待提升等问题。</p><p class="font-bold text-gray-800 mt-6">前景：随着技术不断进步和成本下降，3D打印将在更多制造领域发挥重要作用。</p>'
-                },
-                {
-                    id: 'blog-9',
                     title: '智能制造人才培养策略',
                     category: '教育研究',
                     date: '2025-01-05',
